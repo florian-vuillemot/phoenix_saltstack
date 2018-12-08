@@ -1,0 +1,6 @@
+gitfs_remotes:
+    - https://github.com/florian-vuillemot/postgres-formula.git
+
+file_roots:
+    base:
+        - /srv/salt
