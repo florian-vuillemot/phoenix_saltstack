@@ -1,4 +1,4 @@
-# phoenix_saltstack
+# Saltstack + Phoenix = <3
 Deploy an manage a Phoenix (Elixir) app with SaltStack
 
 Warning:
