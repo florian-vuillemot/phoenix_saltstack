@@ -49,5 +49,8 @@ Configuration is ok, let's go to install !
 - Output: A lot of Succeeded and 0 Failure ;)
 
 
-### Improvement:
+### Improvement
 - Work on the password way -> Encryption or environement...
+
+## General improvement
+- Convert in a Salt-Formulas
