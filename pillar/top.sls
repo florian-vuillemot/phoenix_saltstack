@@ -1,4 +1,6 @@
 base:
     '*':
         - postgres
+        - nginx
+
 

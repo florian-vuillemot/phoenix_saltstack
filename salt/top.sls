@@ -1,4 +1,4 @@
 base:
     '*':
         - postgres.server
-
+        - nginx
