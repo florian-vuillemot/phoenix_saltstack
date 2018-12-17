@@ -9,7 +9,7 @@ Install a Salt Minion on you server and configure it with you Salt Master
 
 ## 2. Install PostgresSQL
 ### Fork the postgres-formulas
-First: Uncomment the `default_include` line in the `/etc/salt/master`. If need set it to `master.d/*.conf` (ix: `default_include: master.d/*.conf`).
+First: Uncomment the `default_include` line in the `/etc/salt/master`. If need set it to `master.d/*.conf` (ie: `default_include: master.d/*.conf`).
 
 Fork the official PostgresSQL formulas repository from SaltStack GitHub (https://github.com/saltstack-formulas/postgres-formula) or from mine (https://github.com/florian-vuillemot/postgres-formula).
 
