@@ -11,6 +11,8 @@ Install a Salt Minion on you server and configure it with you Salt Master
 ### Fork the postgres-formulas
 First: Uncomment the `default_include` line in the `/etc/salt/master`. If need set it to `master.d/*.conf` (ie: `default_include: master.d/*.conf`).
 
+Don't forget to **restart** salt-master after touch configuration file. Take a look with `salt-run fileserver.file_list` for see config file use by your master ;)
+
 Fork the official PostgresSQL formulas repository from SaltStack GitHub (https://github.com/saltstack-formulas/postgres-formula) or from mine (https://github.com/florian-vuillemot/postgres-formula).
 
 You should clone this repository. Salt Master will search it in `/srv/formulas` directory for install PostgresSQL.
@@ -28,6 +30,7 @@ There are Salt code and configs in `/srv/` and Salt-Master settings in `/etc/sal
 
 1. You can directly create a symlink from `/srv` to the repo sources. You should have `/srv/salt/` and `/srv/pillar/` directories available.
 2. Similary you can also create a symlink from `/etc/salt/` to the repo sources. But in this case you need to have the directories `/etc/salt/master.d/` directory available.
+3. Restart your master.
 
 Explanations:
 - master.d contain setting for Salt Master execution.
