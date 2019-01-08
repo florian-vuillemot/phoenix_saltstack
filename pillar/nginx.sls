@@ -1,9 +1,15 @@
 nginx:
+  use_upstart: False
+  use_sysvinit: False
+  user_auth_enabled: True
+  with_luajit: False
+  with_openresty: False
+
   ng:
     # The following three `install_from_` options are mutually exclusive. If none is used, the distro's provided
     # package will be installed. If one of the `install_from` option is set to `True`, the state will
     # make sure the other two repos are removed.
-
+    
     # Use the official's nginx repo binaries
     install_from_repo: false
 

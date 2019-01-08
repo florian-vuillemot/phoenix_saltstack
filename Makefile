@@ -12,8 +12,7 @@ directory:
 clone:
 	git clone https://github.com/florian-vuillemot/postgres-formula
 	git clone https://github.com/florian-vuillemot/nginx-formula
-	chmod 644 -R postgres-formula
-	chmod 644 -R nginx-formula
-	mv postgres-formula /srv/formulas/
-	mv nginx-formula /srv/formulas/
+	git clone https://github.com/florian-vuillemot/epel-formula
+	chmod 644 -R *-formula
+	mv *-formula /srv/formulas/
 
