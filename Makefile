@@ -13,6 +13,7 @@ clone:
 	git clone https://github.com/florian-vuillemot/postgres-formula
 	git clone https://github.com/florian-vuillemot/nginx-formula
 	git clone https://github.com/florian-vuillemot/epel-formula
+	git clone https://github.com/florian-vuillemot/elixir-formula
 	chmod 644 -R *-formula
 	mv *-formula /srv/formulas/
 
