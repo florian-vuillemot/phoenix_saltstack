@@ -1,14 +1,19 @@
 # Saltstack + Phoenix = <3
 Deploy an manage a Phoenix (Elixir) app with SaltStack
 
-Warning:
-I'm not a SaltStack expert. I take all advise and pull request. Thanks you.
+**Warning:**
+
+	I'm not a SaltStack expert. I take all advise and pull request. Thanks you.
+
+	Today this is not a generic formulas. Be carefull with the configuration
+	if you want to use it :)
 
 ## 1. Salt Minion
-Install a Salt Minion on you server and configure it with you Salt Master
+Install a Salt Minion on you server and configure it with you Salt Master or
+use `salt-ssh`.
 
-## 2. Install PostgresSQL
-### Fork the postgres-formulas
+## 2. Before configuration
+### 2.1 Fork the postgres-formulas
 First: Uncomment the `default_include` line in the `/etc/salt/master`. If need set it to `master.d/*.conf` (ie: `default_include: master.d/*.conf`).
 
 Don't forget to **restart** salt-master after touch configuration file. Take a look with `salt-run fileserver.file_list` for see config file use by your master ;)
@@ -19,13 +24,24 @@ You should clone this repository. Salt Master will search it in `/srv/formulas` 
 
 -> In other word, you should have `/srv/formulas/postgres-formula` directory available on you computer.
 
-### Personalized
+#### Personalized
 You can (should if you are in prod) update the file `pillar/postgres.conf`.
 You can change `postgres` in another user, and change the password for be stronger.
 
 You can change any configuration of postgres-formulas in this file :) -> See pillar.example file in postgres-formula repository
 
-### Configure
+### 2.2 Fork elixir-formulas
+https://github.com/florian-vuillemot/elixir-formula
+
+#### Personalized
+Nothing to do :)
+
+### 2.3 Nginx
+After a lot of error with nginx-formula I decided to install with my
+script. If you have ever install Nginx with official Salt formulas please make
+a PR with this config !
+
+## 3. Configure
 There are Salt code and configs in `/srv/` and Salt-Master settings in `/etc/salt/` directory.
 
 1. You can directly create a symlink from `/srv` to the repo sources. You should have `/srv/salt/` and `/srv/pillar/` directories available.
@@ -36,7 +52,7 @@ Explanations:
 - master.d contain setting for Salt Master execution.
 - pillar and salt contain configuration for Salt Minion and State that Salt Master will execute on the Salt Minion (see SaltStack doc).
 
-### Install
+## 4. Install
 First the minion should be accessible and step 1 and 2 of Configure should be done.
 - Cmd: `salt 'my_minion' test.ping`
 - Output: `my_minion: True`
@@ -54,8 +70,9 @@ Configuration is ok, let's go to install !
 - Output: A lot of Succeeded and 0 Failure ;)
 
 
-### Improvement
+# Improvement
 - Work on the password way -> Encryption or environement...
 
-## General improvement
+- Clone directly official repo and checkout on a tag
+
 - Convert in a Salt-Formulas
