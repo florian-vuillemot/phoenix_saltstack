@@ -2,16 +2,23 @@ nginx:
     pkg.installed:
         - refresh: True
     service.running:
-	- enabled: True
-	- reload: True
-	- watch:
-	    - file: /etc/nginx/conf.d/*
+        - enable: True
+        - reload: True
 
-/etc/nginx/conf.d/default.conf:
+certbot:
+    pkgrepo.managed:
+        - ppa: certbot/certbot
+
+python-certbot-nginx:
+    pkg.installed:
+        - refresh: True
+
+/etc/nginx/conf.d/horse.conf:
     file.managed:
-        - absent
+        - source: salt://nginx/configs/horse.conf
 
-/etc/nginx/conf.d/app.conf
-    file.managed:
-        - source: salt://nginx/configs/app.conf
+'sudo systemctl restart nginx':
+    cmd.run
 
+#'sudo certbot --nginx -d testdep.eastus.cloudapp.azure.com -d www.testdep.eastus.cloudapp.azure.com':
+#    cmd.run
