@@ -9,4 +9,4 @@ postgres:
         postgres:
             ensure: present
             password: 'postgres'
-
+	    createuser: True
