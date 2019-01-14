@@ -1,7 +1,7 @@
 base:
     '*':
-#        - postgres.server
-#        - nginx
-#        - config
-        - app
+        - postgres
+        - nginx
+        - elixir
+        - config
 
