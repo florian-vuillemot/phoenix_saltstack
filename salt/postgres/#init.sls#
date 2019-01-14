@@ -1,0 +1,6 @@
+postgresql:
+    pkg.installed
+
+'sudo -u postgres bash -c "psql -c \"CREATE USER postgres WITH PASSWORD \\\"postgres\\\";\""':
+    cmd.run
+
