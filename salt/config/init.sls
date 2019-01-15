@@ -5,7 +5,8 @@ npm:
     pkg.installed
 
 'mix local.hex --force':
-    cmd.run
+    cmd.run:
+        - runas: horse
 
 /home/horse/app_config/prod.secret.exs:
     file.managed:

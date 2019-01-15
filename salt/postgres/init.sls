@@ -1,5 +1,5 @@
 postgresql:
-    pkg.installed
+    pkg.installed:
         - refresh: True
     service.running:
         - enable: True
